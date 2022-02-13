@@ -4,7 +4,7 @@ packages:
     - nixos.git
     - nixos.gcc
 sources:
-    - https://github.com/diamondburned/arikawa
+    - https://github.com/hi117/arikawa
 secrets:
     # Integration test secrets.
     - f51d6157-b4be-4697-99d0-6cd129243f63

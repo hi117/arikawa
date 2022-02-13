@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/diamondburned/arikawa/v3/discord"
-	"github.com/diamondburned/arikawa/v3/utils/ws"
+	"github.com/hi117/arikawa/v3/discord"
+	"github.com/hi117/arikawa/v3/utils/ws"
 )
 
 //go:generate go run ../utils/cmd/genevent -o event_methods.go

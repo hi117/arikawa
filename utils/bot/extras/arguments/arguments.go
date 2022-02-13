@@ -3,7 +3,7 @@ package arguments
 import (
 	"strings"
 
-	"github.com/diamondburned/arikawa/v3/utils/bot"
+	"github.com/hi117/arikawa/v3/utils/bot"
 )
 
 // Joined implements ManualParseable, in case you want all arguments but

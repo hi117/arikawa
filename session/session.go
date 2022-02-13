@@ -9,11 +9,11 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/diamondburned/arikawa/v3/api"
-	"github.com/diamondburned/arikawa/v3/gateway"
-	"github.com/diamondburned/arikawa/v3/utils/handler"
-	"github.com/diamondburned/arikawa/v3/utils/json/option"
-	"github.com/diamondburned/arikawa/v3/utils/ws/ophandler"
+	"github.com/hi117/arikawa/v3/api"
+	"github.com/hi117/arikawa/v3/gateway"
+	"github.com/hi117/arikawa/v3/utils/handler"
+	"github.com/hi117/arikawa/v3/utils/json/option"
+	"github.com/hi117/arikawa/v3/utils/ws/ophandler"
 )
 
 // ErrMFA is returned if the account requires a 2FA code to log in.

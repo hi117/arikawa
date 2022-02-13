@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/diamondburned/arikawa/v3/utils/ws"
+	"github.com/hi117/arikawa/v3/utils/ws"
 	"github.com/pkg/errors"
 )
 

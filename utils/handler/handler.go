@@ -22,18 +22,26 @@ import (
 	"reflect"
 	"sync"
 
+	"github.com/hi117/arikawa/v3/utils/ws"
 	"github.com/pkg/errors"
 )
 
 // Handler is a container for command handlers. A zero-value instance is a valid
 // instance.
 type Handler struct {
-	mutex  sync.RWMutex
-	events map[reflect.Type]slab // nil type for interfaces
+	mutex      sync.RWMutex
+	events     map[reflect.Type]slab // nil type for interfaces
+	RawHandler func(ws.Op)
 }
 
 func New() *Handler {
 	return &Handler{}
+}
+
+func (h *Handler) CallRaw(op ws.Op) {
+	if h.RawHandler != nil {
+		h.RawHandler(op)
+	}
 }
 
 // Call calls all handlers with the given event. This is an internal method; use

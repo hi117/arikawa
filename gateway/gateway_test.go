@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/diamondburned/arikawa/v3/internal/testenv"
-	"github.com/diamondburned/arikawa/v3/utils/ws"
+	"github.com/hi117/arikawa/v3/internal/testenv"
+	"github.com/hi117/arikawa/v3/utils/ws"
 )
 
 var doLogOnce sync.Once

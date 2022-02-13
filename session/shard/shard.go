@@ -3,10 +3,10 @@ package shard
 import (
 	"context"
 
-	"github.com/diamondburned/arikawa/v3/api"
-	"github.com/diamondburned/arikawa/v3/gateway"
-	"github.com/diamondburned/arikawa/v3/session"
-	"github.com/diamondburned/arikawa/v3/utils/handler"
+	"github.com/hi117/arikawa/v3/api"
+	"github.com/hi117/arikawa/v3/gateway"
+	"github.com/hi117/arikawa/v3/session"
+	"github.com/hi117/arikawa/v3/utils/handler"
 	"github.com/pkg/errors"
 )
 

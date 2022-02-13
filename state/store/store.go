@@ -37,7 +37,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/diamondburned/arikawa/v3/discord"
+	"github.com/hi117/arikawa/v3/discord"
 )
 
 // ErrNotFound is an error that a store can use to return when something isn't

@@ -4,7 +4,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/diamondburned/arikawa/v3/utils/json"
+	"github.com/hi117/arikawa/v3/utils/json"
 	"github.com/pkg/errors"
 )
 

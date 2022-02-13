@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/diamondburned/arikawa/v3/discord"
-	"github.com/diamondburned/arikawa/v3/state/store"
+	"github.com/hi117/arikawa/v3/discord"
+	"github.com/hi117/arikawa/v3/state/store"
 )
 
 type Channel struct {

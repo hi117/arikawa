@@ -5,8 +5,8 @@ package ophandler
 import (
 	"context"
 
-	"github.com/diamondburned/arikawa/v3/utils/handler"
-	"github.com/diamondburned/arikawa/v3/utils/ws"
+	"github.com/hi117/arikawa/v3/utils/handler"
+	"github.com/hi117/arikawa/v3/utils/ws"
 )
 
 // Loop starts a background goroutine that starts reading from src and
@@ -17,6 +17,7 @@ func Loop(src <-chan ws.Op, dst *handler.Handler) <-chan struct{} {
 	go func() {
 		for op := range src {
 			dst.Call(op.Data)
+			dst.CallRaw(op)
 		}
 		close(done)
 	}()

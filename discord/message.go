@@ -24,7 +24,7 @@ type Message struct {
 	Flags MessageFlags `json:"flags"`
 
 	// The message associated with the message_reference. This is a minimal subset of fields in a message (e.g. author is excluded.)
-	MessageSnapshot []Message `json:"message_snapshot,omitempty"`
+	MessageSnapshots []Message `json:"message_snapshots,omitempty"`
 
 	// TTS specifies whether the was a TTS message.
 	TTS bool `json:"tts"`

@@ -365,6 +365,13 @@ func (m MessageApplication) CreatedAt() time.Time {
 	return m.ID.Time()
 }
 
+const (
+	// A standard reference used by replies.
+	MessageReferenceTypeDefault = iota
+	// Reference used to point to a message at a point in time.
+	MessageReferenceTypeForward
+)
+
 // MessageReference is used in four situations:
 //
 // # Crosspost messages
@@ -396,6 +403,9 @@ func (m MessageApplication) CreatedAt() time.Time {
 // When sending, only MessageID is required.
 // https://discord.com/developers/docs/resources/channel#message-object-message-reference-structure
 type MessageReference struct {
+	// If type is unset, DEFAULT can be assumed in order to match the behaviour before message reference
+	// had types. In future API versions this will become a required field.
+	Type int `json:"type,omitempty"`
 	// MessageID is the id of the originating message.
 	MessageID MessageID `json:"message_id,omitempty"`
 	// ChannelID is the id of the originating message's channel.

@@ -372,6 +372,9 @@ const (
 	MessageReferenceTypeForward
 )
 
+// Type of message reference
+type MessageReferenceType int
+
 // MessageReference is used in four situations:
 //
 // # Crosspost messages
@@ -405,7 +408,7 @@ const (
 type MessageReference struct {
 	// If type is unset, DEFAULT can be assumed in order to match the behaviour before message reference
 	// had types. In future API versions this will become a required field.
-	Type int `json:"type,omitempty"`
+	Type MessageReferenceType `json:"type"`
 	// MessageID is the id of the originating message.
 	MessageID MessageID `json:"message_id,omitempty"`
 	// ChannelID is the id of the originating message's channel.

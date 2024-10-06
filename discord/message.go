@@ -24,7 +24,7 @@ type Message struct {
 	Flags MessageFlags `json:"flags"`
 
 	// The message associated with the message_reference. This is a minimal subset of fields in a message (e.g. author is excluded.)
-	MessageSnapshots []Message `json:"message_snapshots,omitempty"`
+	MessageSnapshots []MessageSnapshot `json:"message_snapshots,omitempty"`
 
 	// TTS specifies whether the was a TTS message.
 	TTS bool `json:"tts"`
@@ -368,9 +368,14 @@ func (m MessageApplication) CreatedAt() time.Time {
 	return m.ID.Time()
 }
 
+type MessageSnapshot struct {
+	// The embedded partial message object
+	Message *Message `json:"message"`
+}
+
 const (
 	// A standard reference used by replies.
-	MessageReferenceTypeDefault = iota
+	MessageReferenceTypeDefault MessageReferenceType = iota
 	// Reference used to point to a message at a point in time.
 	MessageReferenceTypeForward
 )

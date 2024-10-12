@@ -368,9 +368,53 @@ func (m MessageApplication) CreatedAt() time.Time {
 	return m.ID.Time()
 }
 
+// https://discord.com/developers/docs/resources/message#message-snapshot-object
+type MessageSnapshotMessage struct {
+	// Type is the type of message.
+	Type MessageType `json:"type"`
+
+	// Content contains the contents of the message.
+	Content string `json:"content"`
+
+	// Embeds contains any embedded content.
+	Embeds []Embed `json:"embeds"`
+
+	// Attachments contains any attached files.
+	Attachments []Attachment `json:"attachments"`
+
+	// Timestamp specifies when the message was sent
+	Timestamp Timestamp `json:"timestamp,omitempty"`
+
+	// EditedTimestamp specifies when this message was edited.
+	//
+	// IsValid() will return false, if the messages hasn't been edited.
+	EditedTimestamp Timestamp `json:"edited_timestamp,omitempty"`
+
+	// Flags are the MessageFlags.
+	Flags MessageFlags `json:"flags"`
+
+	// Mentions contains the users specifically mentioned in the message.
+	//
+	// The user objects in the mentions array will only have the partial
+	// member field present in MESSAGE_CREATE and MESSAGE_UPDATE events from
+	// text-based guild channels.
+	Mentions []GuildUser `json:"mentions"`
+
+	// MentionRoleIDs contains the ids of the roles specifically mentioned in
+	// the message.
+	MentionRoleIDs []RoleID `json:"mention_roles"`
+
+	// Stickers contains the sticker "items" sent with the message.
+	Stickers []StickerItem `json:"sticker_items,omitempty"`
+
+	// Components contains any attached components.
+	Components ContainerComponents `json:"components,omitempty"`
+}
+
+// https://discord.com/developers/docs/resources/message#message-snapshot-object
 type MessageSnapshot struct {
 	// The embedded partial message object
-	Message *Message `json:"message"`
+	Message *MessageSnapshotMessage `json:"message"`
 }
 
 const (

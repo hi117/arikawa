@@ -112,12 +112,22 @@ type Message struct {
 	// [MessageReferenceTypeForward].
 	MessageSnapshots []MessageSnapshot `json:"message_snapshots,omitempty"`
 
+	// Call is the private channel call (MessageCall) that prompted this message.
+	Call MessageCall `json:"call,omitempty"`
+
 	// Interaction is the interaction that the message is in response to.
 	// This is only present if the message is in response to an interaction.
 	Interaction *MessageInteraction `json:"interaction,omitempty"`
 
 	// Stickers contains the sticker "items" sent with the message.
 	Stickers []StickerItem `json:"sticker_items,omitempty"`
+}
+
+type MessageCall struct {
+	// Participants is the IDs of the users who participated in the call.
+	Participants []UserID `json:"participants"`
+	// Estimated ended timestamp. Could be nil.
+	EndedTimestamp *Timestamp `json:"ended_timestamp,omitempty"`
 }
 
 // URL generates a Discord client URL to the message. If the message doesn't
@@ -217,10 +227,23 @@ const (
 	// MessageLoading specifies whether the message is an Interaction Response
 	// and the bot is "thinking"
 	MessageLoading
-	// TODO: add FailedToMentionSomeRolesInThread
-
+	// FailedToMentionSomeRolesInThread specifies whether the message failed to mention some roles and add their members to the thread.
+	FailedToMentionSomeRolesInThread
+	// Unknown
+	_
+	// Unknown
+	_
+	// Unknown
+	_
 	// SuppressNotifications specifies whether the message will not trigger push and desktop notifications.
-	SuppressNotifications = 1 << 12
+	SuppressNotifications
+	// IsVoiceMessage specifies whether the message is a voice message.
+	IsVoiceMessage
+	// HasSnapshot specifies whether the message has a snapshot (via Message Forwarding).
+	HasSnapshot
+	// IsComponentsV2 specifies whether the message contains components from version 2 of the UI kit.
+	// Once a message has been sent with this flag, it can’t be removed from that message.
+	IsComponentsV2
 )
 
 // StickerItem contains partial data of a Sticker.
